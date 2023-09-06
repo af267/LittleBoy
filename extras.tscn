@@ -1,0 +1,163 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbw46adun5rn2"]
+
+[ext_resource type="Script" path="res://extras.gd" id="1_dwl4x"]
+[ext_resource type="VideoStream" path="res://jumpscare1.ogv" id="1_plrr5"]
+[ext_resource type="VideoStream" path="res://jumpscare2.ogv" id="2_x2nvm"]
+[ext_resource type="VideoStream" path="res://jumpscare3.ogv" id="3_pot0d"]
+
+[node name="Extras" type="Node2D"]
+script = ExtResource("1_dwl4x")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Jumpscare1" type="VideoStreamPlayer" parent="CanvasLayer"]
+process_mode = 3
+offset_right = 1145.0
+offset_bottom = 649.0
+stream = ExtResource("1_plrr5")
+volume_db = -60.0
+expand = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Jumpscare2" type="VideoStreamPlayer" parent="CanvasLayer"]
+process_mode = 3
+offset_right = 1145.0
+offset_bottom = 649.0
+stream = ExtResource("2_x2nvm")
+volume_db = -60.0
+expand = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Jumpscare3" type="VideoStreamPlayer" parent="CanvasLayer"]
+process_mode = 3
+offset_right = 1145.0
+offset_bottom = 649.0
+stream = ExtResource("3_pot0d")
+volume_db = -60.0
+expand = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Jumpscares" type="Label" parent="."]
+offset_left = 85.0
+offset_top = 111.0
+offset_right = 493.0
+offset_bottom = 174.0
+theme_override_font_sizes/font_size = 60
+text = "JUMPSCARES"
+horizontal_alignment = 1
+
+[node name="LevelSelect" type="Label" parent="."]
+offset_left = 675.0
+offset_top = 111.0
+offset_right = 1083.0
+offset_bottom = 174.0
+theme_override_font_sizes/font_size = 60
+text = "LEVEL SELECT"
+horizontal_alignment = 1
+
+[node name="Monkey" type="Button" parent="."]
+offset_left = 40.0
+offset_top = 213.0
+offset_right = 540.0
+offset_bottom = 301.0
+theme_override_font_sizes/font_size = 80
+text = "MONKEY"
+
+[node name="Spider" type="Button" parent="."]
+offset_left = 41.0
+offset_top = 361.0
+offset_right = 541.0
+offset_bottom = 449.0
+theme_override_font_sizes/font_size = 80
+text = "SPIDER"
+
+[node name="Stinger" type="Button" parent="."]
+offset_left = 43.0
+offset_top = 511.0
+offset_right = 543.0
+offset_bottom = 599.0
+theme_override_font_sizes/font_size = 80
+text = "STINGER"
+
+[node name="l1" type="Button" parent="."]
+offset_left = 653.0
+offset_top = 213.0
+offset_right = 853.0
+offset_bottom = 301.0
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="l2" type="Button" parent="."]
+offset_left = 903.0
+offset_top = 213.0
+offset_right = 1103.0
+offset_bottom = 301.0
+theme_override_font_sizes/font_size = 80
+text = "2"
+
+[node name="l3" type="Button" parent="."]
+offset_left = 653.0
+offset_top = 360.0
+offset_right = 853.0
+offset_bottom = 448.0
+theme_override_font_sizes/font_size = 80
+text = "3"
+
+[node name="l4" type="Button" parent="."]
+offset_left = 903.0
+offset_top = 360.0
+offset_right = 1103.0
+offset_bottom = 448.0
+theme_override_font_sizes/font_size = 80
+text = "4"
+
+[node name="l5" type="Button" parent="."]
+offset_left = 653.0
+offset_top = 511.0
+offset_right = 853.0
+offset_bottom = 599.0
+theme_override_font_sizes/font_size = 80
+text = "5"
+
+[node name="l6" type="Button" parent="."]
+offset_left = 903.0
+offset_top = 511.0
+offset_right = 1103.0
+offset_bottom = 599.0
+theme_override_font_sizes/font_size = 80
+text = "EX"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1013.0
+offset_top = 16.0
+offset_right = 1115.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 30
+text = "VOLUME"
+
+[node name="HSlider" type="HSlider" parent="."]
+offset_left = 1011.0
+offset_top = 48.0
+offset_right = 1114.0
+offset_bottom = 71.0
+value = 50.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 15.0
+offset_top = 16.0
+offset_right = 95.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 60
+text = "↵"
+
+[connection signal="pressed" from="Monkey" to="." method="_on_monkey_pressed"]
+[connection signal="pressed" from="Spider" to="." method="_on_spider_pressed"]
+[connection signal="pressed" from="Stinger" to="." method="_on_stinger_pressed"]
+[connection signal="pressed" from="l1" to="." method="_on_l_1_pressed"]
+[connection signal="pressed" from="l2" to="." method="_on_l_2_pressed"]
+[connection signal="pressed" from="l3" to="." method="_on_l_3_pressed"]
+[connection signal="pressed" from="l4" to="." method="_on_l_4_pressed"]
+[connection signal="pressed" from="l5" to="." method="_on_l_5_pressed"]
+[connection signal="pressed" from="l6" to="." method="_on_l_6_pressed"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

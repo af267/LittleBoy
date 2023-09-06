@@ -1,0 +1,254 @@
+[gd_scene load_steps=9 format=3 uid="uid://dmqqaad244bbr"]
+
+[ext_resource type="AudioStream" uid="uid://bwybg2xv7h0x0" path="res://audio/calibration.mp3" id="1_j1dkf"]
+[ext_resource type="Script" path="res://credits.gd" id="1_x3wid"]
+[ext_resource type="FontFile" uid="uid://biy8swckkbhpe" path="res://assets/LittleBoy-Regular.ttf" id="2_ap7v8"]
+[ext_resource type="AudioStream" uid="uid://ctn4c7qth3xjk" path="res://audio/glitch.mp3" id="4_ff18p"]
+[ext_resource type="Texture2D" uid="uid://yxnwcy17r0p3" path="res://ac-pixel.jpg" id="4_mygio"]
+
+[sub_resource type="Animation" id="Animation_q2dst"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.117647, 0.12549, 0.133333, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(119, 652)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Title:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 2.08165e-12)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Title:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(416, 302)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Title:theme_override_colors/font_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.117647, 0.12549, 0.133333, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bsy28"]
+resource_name = "credits"
+length = 67.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 61),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.117647, 0.12549, 0.133333, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 67),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(119, 652), Vector2(119, -1900)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Title:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(64, 66),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2.08165e-12), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Title:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(64, 66),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(285, 316), Vector2(416, 302)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Title:theme_override_colors/font_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(64.7, 66),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.117647, 0.12549, 0.133333, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dioym"]
+_data = {
+"RESET": SubResource("Animation_q2dst"),
+"credits": SubResource("Animation_bsy28")
+}
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_x3wid")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1156.0
+offset_bottom = 652.0
+color = Color(0.117647, 0.12549, 0.133333, 1)
+
+[node name="Lilboy" type="Label" parent="."]
+offset_left = 333.0
+offset_top = 285.0
+offset_right = 832.0
+offset_bottom = 350.0
+theme_override_colors/font_color = Color(0.117647, 0.12549, 0.133333, 1)
+theme_override_fonts/font = ExtResource("2_ap7v8")
+theme_override_font_sizes/font_size = 90
+text = "LITTLE BOY"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 119.0
+offset_top = 652.0
+offset_right = 1031.0
+offset_bottom = 2467.01
+theme_override_font_sizes/font_size = 29
+text = "GAME DESIGN & STORY
+JAMES SONG
+ 
+ 
+CHARACTER DESIGN
+https://www.avatarsinpixels.com
+ 
+ 
+MUSIC
+JAMES SONG
+ 
+ 
+VOICING
+name here
+ 
+ 
+AUDIO
+https://pixabay.com/sound-effects/dorm-door-opening-6038/
+https://pixabay.com/sound-effects/cicadas-157124/
+https://www.youtube.com/watch?v=np8JN0iQUHg
+https://pixabay.com/sound-effects/fuzzy-jumpscare-80560/
+ 
+ 
+TILE MAP
+https://www.kenney.nl/assets/1-bit-platformer-pack
+ 
+ 
+FONTS
+PERFECT DOS VGA 437
+LITTLEBOY REGULAR
+ 
+ 
+EFFECTS
+IMOVIE
+GARAGEBAND
+https://photomosh.com/
+ 
+ 
+TESTING TEAM
+DAVIS CLARKE
+JAYMIN DING
+RHYS DE HAAN
+ 
+ 
+MADE USING GODOT AND BLENDER
+ 
+ 
+ 
+ 
+NEOCOMS ENTERTAINMENT PRESENTS
+ 
+ 
+ 
+ 
+THE UNKNOWINGVERSE:"
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="."]
+offset_left = 416.0
+offset_top = 302.0
+offset_right = 720.001
+offset_bottom = 335.0
+scale = Vector2(1, 2.08165e-12)
+theme_override_colors/font_color = Color(0.117647, 0.12549, 0.133333, 1)
+theme_override_font_sizes/font_size = 29
+text = "L I T T L E   B O Y"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_j1dkf")
+volume_db = -60.0
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "credits"
+libraries = {
+"": SubResource("AnimationLibrary_dioym")
+}
+
+[node name="glitch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ff18p")
+volume_db = -60.0
+
+[node name="Acpixel" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(578, 313)
+scale = Vector2(0.334539, 0.334539)
+texture = ExtResource("4_mygio")

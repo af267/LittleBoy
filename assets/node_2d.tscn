@@ -1,0 +1,129 @@
+[gd_scene load_steps=7 format=3 uid="uid://bn10d385m6frf"]
+
+[ext_resource type="Script" path="res://assets/mainmenu.gd" id="1_n7nbr"]
+[ext_resource type="FontFile" uid="uid://biy8swckkbhpe" path="res://assets/LittleBoy-Regular.ttf" id="1_twr3y"]
+[ext_resource type="Script" path="res://assets/Menu.gd" id="2_np1j7"]
+[ext_resource type="AudioStream" uid="uid://bi3if7l84skl7" path="res://corruption.mp3" id="3_f2jdf"]
+
+[sub_resource type="Animation" id="Animation_vgudn"]
+resource_name = "title"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Title2:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.6, 1.8, 1.9, 3, 3.1, 3.2, 4.7, 4.8, 5, 5.1, 5.3, 5.4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [50, 50, 20, 20, 50, 50, 20, 50, 70, 50, 50, 20, 20, 50, 50]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Title2:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.9, 3, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["L I T T L E   B O Y", "T H E   U N K N O W I N G V E R S E", "L I T T L E   B O Y"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ocrsk"]
+_data = {
+"title": SubResource("Animation_vgudn")
+}
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_n7nbr")
+
+[node name="Title1" type="Label" parent="."]
+offset_left = 133.0
+offset_top = 188.0
+offset_right = 1031.0
+offset_bottom = 382.0
+theme_override_colors/font_color = Color(0.160784, 0.172549, 0.2, 1)
+theme_override_fonts/font = ExtResource("1_twr3y")
+theme_override_font_sizes/font_size = 150
+text = "LITTLE BOY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "title"
+libraries = {
+"": SubResource("AnimationLibrary_ocrsk")
+}
+
+[node name="Title2" type="Label" parent="AnimationPlayer"]
+offset_left = 12.0
+offset_top = 257.0
+offset_right = 1143.0
+offset_bottom = 311.0
+theme_type_variation = &"HeaderMedium"
+theme_override_font_sizes/font_size = 50
+text = "L I T T L E   B O Y"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1013.0
+offset_top = 16.0
+offset_right = 1115.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 30
+text = "VOLUME"
+
+[node name="HSlider" type="HSlider" parent="."]
+offset_left = 1011.0
+offset_top = 48.0
+offset_right = 1114.0
+offset_bottom = 71.0
+value = 50.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 492.0
+offset_top = 376.0
+offset_right = 681.0
+offset_bottom = 431.0
+theme_override_font_sizes/font_size = 30
+text = "NEW GAME"
+script = ExtResource("2_np1j7")
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 492.0
+offset_top = 441.0
+offset_right = 681.0
+offset_bottom = 496.0
+theme_override_font_sizes/font_size = 30
+text = "LOAD SAVE"
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 492.0
+offset_top = 507.0
+offset_right = 681.0
+offset_bottom = 562.0
+theme_override_font_sizes/font_size = 30
+text = "EXTRAS"
+
+[node name="Copyright" type="Label" parent="."]
+offset_left = 13.0
+offset_top = 609.0
+offset_right = 1142.0
+offset_bottom = 635.0
+text = "COPYRIGHT © NEOCOMS"
+horizontal_alignment = 1
+
+[node name="TitleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_f2jdf")
+volume_db = -60.0
+autoplay = true
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

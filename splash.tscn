@@ -1,0 +1,182 @@
+[gd_scene load_steps=6 format=3 uid="uid://cv74nkhqsa6b4"]
+
+[ext_resource type="Script" path="res://splash.gd" id="1_2awix"]
+[ext_resource type="Texture2D" uid="uid://b7brc3cfmmchx" path="res://logo.png" id="1_ee84d"]
+
+[sub_resource type="Animation" id="Animation_hrhcf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.117647, 0.12549, 0.133333, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Label2:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.117647, 0.12549, 0.133333, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Label:theme_override_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.117647, 0.12549, 0.133333, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Label:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Label2:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5f2uy"]
+resource_name = "fade"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 3.2, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.117647, 0.12549, 0.133333, 1), Color(0.117647, 0.12549, 0.133333, 0), Color(0.117647, 0.12549, 0.133333, 0), Color(0.117647, 0.12549, 0.133333, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Label2:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4, 5, 9, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.117647, 0.12549, 0.133333, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.117647, 0.12549, 0.133333, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Label:theme_override_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4, 5, 9, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.117647, 0.12549, 0.133333, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.117647, 0.12549, 0.133333, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Label:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.9, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(2.08165e-12, 2.08165e-12), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Label2:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.9, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(2.08165e-12, 2.08165e-12), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8rlv8"]
+_data = {
+"RESET": SubResource("Animation_hrhcf"),
+"fade": SubResource("Animation_5f2uy")
+}
+
+[node name="Splash" type="Node2D"]
+script = ExtResource("1_2awix")
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(577, 326.75)
+scale = Vector2(0.597917, 0.596759)
+texture = ExtResource("1_ee84d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("ColorRect")
+libraries = {
+"": SubResource("AnimationLibrary_8rlv8")
+}
+
+[node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
+offset_left = 20.0
+offset_top = 15.0
+offset_right = 1137.0
+offset_bottom = 631.0
+color = Color(0.117647, 0.12549, 0.133333, 1)
+
+[node name="Label2" type="Label" parent="AnimationPlayer"]
+offset_left = 167.0
+offset_top = 225.0
+offset_right = 999.0
+offset_bottom = 288.0
+theme_override_colors/font_color = Color(0.117647, 0.12549, 0.133333, 1)
+theme_override_font_sizes/font_size = 60
+text = "WARNING"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="AnimationPlayer"]
+offset_left = 168.0
+offset_top = 323.0
+offset_right = 1000.0
+offset_bottom = 459.0
+theme_override_colors/font_color = Color(0.117647, 0.12549, 0.133333, 1)
+theme_override_font_sizes/font_size = 30
+text = "THIS GAME CONTAINS JUMPSCARES AND MILDLY DISTURBING IMAGES, SOUNDS, AND OTHER CONTENT.
+*
+HAVE FUN!"
+horizontal_alignment = 1
+autowrap_mode = 2
